@@ -104,7 +104,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 16px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             justify-content: center;
         }
         .task-image {
@@ -115,17 +115,6 @@
             background: #FFF0DF;
             border: 1px solid #E5A93D;
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-        .image-placeholder {
-            width: 80px;
-            height: 80px;
-            background: #E5A93D20;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #1E3A5F;
         }
 
         .questions-grid {
@@ -162,7 +151,7 @@
             flex: 2;
         }
 
-        select, .match-select {
+        select {
             background: white;
             border: 1px solid #E5A93D;
             border-radius: 40px;
@@ -171,7 +160,7 @@
             color: #1E3A5F;
             font-weight: 500;
             cursor: pointer;
-            min-width: 120px;
+            min-width: 130px;
         }
 
         .input-field {
@@ -257,16 +246,16 @@
     </h1>
     <div class="subhead">Настоящее время — упражнения с проверкой по клику</div>
 
-    <!-- Декоративные картинки (иллюстрация к теме) -->
+    <!-- Декоративные картинки (лежат в той же папке, что и HTML) -->
     <div class="image-row">
-        <img class="task-image" src="images/hunger.png" alt="голод" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=image-placeholder>🍽️</div>'">
-        <img class="task-image" src="images/schwester.png" alt="сестра" onerror="this.parentElement.innerHTML='<div class=image-placeholder>👭</div>'">
-        <img class="task-image" src="images/zeit.png" alt="время" onerror="this.parentElement.innerHTML='<div class=image-placeholder>⏰</div>'">
-        <img class="task-image" src="images/durst.png" alt="жажда" onerror="this.parentElement.innerHTML='<div class=image-placeholder>💧</div>'">
-        <img class="task-image" src="images/buch.png" alt="книга" onerror="this.parentElement.innerHTML='<div class=image-placeholder>📖</div>'">
-        <img class="task-image" src="images/geld.png" alt="деньги" onerror="this.parentElement.innerHTML='<div class=image-placeholder>💰</div>'">
-        <img class="task-image" src="images/hund.png" alt="собака" onerror="this.parentElement.innerHTML='<div class=image-placeholder>🐕</div>'">
-        <img class="task-image" src="images/katze.png" alt="кошка" onerror="this.parentElement.innerHTML='<div class=image-placeholder>🐈</div>'">
+        <img class="task-image" src="hunger.png" alt="голод" onerror="this.style.display='none'">
+        <img class="task-image" src="schwester.png" alt="сестра" onerror="this.style.display='none'">
+        <img class="task-image" src="zeit.png" alt="время" onerror="this.style.display='none'">
+        <img class="task-image" src="durst.png" alt="жажда" onerror="this.style.display='none'">
+        <img class="task-image" src="buch.png" alt="книга" onerror="this.style.display='none'">
+        <img class="task-image" src="geld.png" alt="деньги" onerror="this.style.display='none'">
+        <img class="task-image" src="hund.png" alt="собака" onerror="this.style.display='none'">
+        <img class="task-image" src="katze.png" alt="кошка" onerror="this.style.display='none'">
     </div>
 
     <!-- ================= ЗАДАНИЕ 1 ================= -->
@@ -274,92 +263,84 @@
         <div class="task-title"><span>1</span> Вставь правильную форму <span class="german-word">haben</span></div>
         <div class="task-desc">Выбери из выпадающего списка: <strong>habe, hast, hat, haben, habt</strong>. Нажми на кнопку, чтобы проверить.</div>
         <div class="questions-grid" id="task1-grid">
-            <!-- a) Ich __ Hunger -->
             <div class="card-item">
                 <div class="question-text">a) Ich ________ Hunger.</div>
-                <select id="haben1a">
+                <select class="haben-select" data-correct="habe">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="habe">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- b) Du __ eine Schwester -->
             <div class="card-item">
                 <div class="question-text">b) Du ________ eine Schwester.</div>
-                <select id="haben1b">
+                <select class="haben-select" data-correct="hast">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="hast">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- c) Er __ Zeit -->
             <div class="card-item">
                 <div class="question-text">c) Er ________ Zeit.</div>
-                <select id="haben1c">
+                <select class="haben-select" data-correct="hat">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="hat">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- d) Wir __ Durst -->
             <div class="card-item">
                 <div class="question-text">d) Wir ________ Durst.</div>
-                <select id="haben1d">
+                <select class="haben-select" data-correct="haben">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="haben">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- e) Ihr __ ein Buch -->
             <div class="card-item">
                 <div class="question-text">e) Ihr ________ ein Buch.</div>
-                <select id="haben1e">
+                <select class="haben-select" data-correct="habt">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="habt">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- f) Sie (она) __ Geld -->
             <div class="card-item">
                 <div class="question-text">f) Sie (она) ________ Geld.</div>
-                <select id="haben1f">
+                <select class="haben-select" data-correct="hat">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="hat">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- g) Sie (они) __ einen Hund -->
             <div class="card-item">
                 <div class="question-text">g) Sie (они) ________ einen Hund.</div>
-                <select id="haben1g">
+                <select class="haben-select" data-correct="haben">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="haben">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
-            <!-- h) __ Sie (Вы) eine Katze? -->
             <div class="card-item">
                 <div class="question-text">h) ________ Sie (Вы) eine Katze?</div>
-                <select id="haben1h">
+                <select class="haben-select" data-correct="haben">
                     <option value="">-- wähle --</option>
                     <option value="habe">habe</option><option value="hast">hast</option>
                     <option value="hat">hat</option><option value="haben">haben</option><option value="habt">habt</option>
                 </select>
-                <button class="btn-answer" data-answer="haben">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
         </div>
@@ -372,7 +353,7 @@
         <div class="questions-grid">
             <div class="card-item match-item">
                 <span class="question-text">Ich → ?</span>
-                <select id="match2a">
+                <select class="match-select" data-correct="e">
                     <option value="">-- wähle --</option>
                     <option value="a">a) hast Hunger.</option>
                     <option value="b">b) hat Durst.</option>
@@ -380,12 +361,12 @@
                     <option value="d">d) habt Geld.</option>
                     <option value="e">e) habe eine Katze.</option>
                 </select>
-                <button class="btn-answer" data-answer="e">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item match-item">
                 <span class="question-text">Du → ?</span>
-                <select id="match2b">
+                <select class="match-select" data-correct="a">
                     <option value="">-- wähle --</option>
                     <option value="a">a) hast Hunger.</option>
                     <option value="b">b) hat Durst.</option>
@@ -393,12 +374,12 @@
                     <option value="d">d) habt Geld.</option>
                     <option value="e">e) habe eine Katze.</option>
                 </select>
-                <button class="btn-answer" data-answer="a">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item match-item">
                 <span class="question-text">Er → ?</span>
-                <select id="match2c">
+                <select class="match-select" data-correct="b">
                     <option value="">-- wähle --</option>
                     <option value="a">a) hast Hunger.</option>
                     <option value="b">b) hat Durst.</option>
@@ -406,12 +387,12 @@
                     <option value="d">d) habt Geld.</option>
                     <option value="e">e) habe eine Katze.</option>
                 </select>
-                <button class="btn-answer" data-answer="b">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item match-item">
                 <span class="question-text">Wir → ?</span>
-                <select id="match2d">
+                <select class="match-select" data-correct="c">
                     <option value="">-- wähle --</option>
                     <option value="a">a) hast Hunger.</option>
                     <option value="b">b) hat Durst.</option>
@@ -419,12 +400,12 @@
                     <option value="d">d) habt Geld.</option>
                     <option value="e">e) habe eine Katze.</option>
                 </select>
-                <button class="btn-answer" data-answer="c">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item match-item">
                 <span class="question-text">Ihr → ?</span>
-                <select id="match2e">
+                <select class="match-select" data-correct="d">
                     <option value="">-- wähle --</option>
                     <option value="a">a) hast Hunger.</option>
                     <option value="b">b) hat Durst.</option>
@@ -432,7 +413,7 @@
                     <option value="d">d) habt Geld.</option>
                     <option value="e">e) habe eine Katze.</option>
                 </select>
-                <button class="btn-answer" data-answer="d">🔎 Ответ</button>
+                <button class="btn-answer">🔎 Ответ</button>
                 <div class="answer-box"></div>
             </div>
         </div>
@@ -441,118 +422,95 @@
     <!-- ================= ЗАДАНИЕ 3 ================= -->
     <div class="task-section">
         <div class="task-title"><span>3</span> Переведи на немецкий (используй <span class="german-word">haben</span>)</div>
-        <div class="task-desc">Напиши полное предложение. Нажми «Показать ответ», чтобы сверить.</div>
+        <div class="task-desc">Напиши полное предложение. Нажми «Ответ», чтобы сверить с правильным переводом.</div>
         <div class="questions-grid">
             <div class="card-item">
-                <div class="question-text">a) У меня есть время. → <input type="text" id="trans3a" class="input-field" placeholder="Dein Satz"></div>
-                <button class="btn-answer" data-trans-answer="Ich habe Zeit.">🌐 Ответ</button>
+                <div class="question-text">a) У меня есть время. → <input type="text" class="input-field" placeholder="Dein Satz"></div>
+                <button class="btn-answer" data-trans="Ich habe Zeit.">🌐 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item">
-                <div class="question-text">b) Ты голоден. → <input type="text" id="trans3b" class="input-field" placeholder="Dein Satz"></div>
-                <button class="btn-answer" data-trans-answer="Du hast Hunger.">🌐 Ответ</button>
+                <div class="question-text">b) Ты голоден. → <input type="text" class="input-field" placeholder="Dein Satz"></div>
+                <button class="btn-answer" data-trans="Du hast Hunger.">🌐 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item">
-                <div class="question-text">c) У него есть собака. → <input type="text" id="trans3c" class="input-field" placeholder="Dein Satz"></div>
-                <button class="btn-answer" data-trans-answer="Er hat einen Hund.">🌐 Ответ</button>
+                <div class="question-text">c) У него есть собака. → <input type="text" class="input-field" placeholder="Dein Satz"></div>
+                <button class="btn-answer" data-trans="Er hat einen Hund.">🌐 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item">
-                <div class="question-text">d) Мы хотим пить. (У нас жажда.) → <input type="text" id="trans3d" class="input-field" placeholder="Dein Satz"></div>
-                <button class="btn-answer" data-trans-answer="Wir haben Durst.">🌐 Ответ</button>
+                <div class="question-text">d) Мы хотим пить. (У нас жажда.) → <input type="text" class="input-field" placeholder="Dein Satz"></div>
+                <button class="btn-answer" data-trans="Wir haben Durst.">🌐 Ответ</button>
                 <div class="answer-box"></div>
             </div>
             <div class="card-item">
-                <div class="question-text">e) У Вас (вежливо) есть книга? → <input type="text" id="trans3e" class="input-field" placeholder="Dein Satz"></div>
-                <button class="btn-answer" data-trans-answer="Haben Sie ein Buch?">🌐 Ответ</button>
+                <div class="question-text">e) У Вас (вежливо) есть книга? → <input type="text" class="input-field" placeholder="Dein Satz"></div>
+                <button class="btn-answer" data-trans="Haben Sie ein Buch?">🌐 Ответ</button>
                 <div class="answer-box"></div>
             </div>
         </div>
     </div>
 
-    <footer>
-        ✨ Нажимай на любую кнопку «Ответ» – покажется правильный вариант.<br>
-        🖼️ Картинки лежат в папке <code>images/</code> (см. промпты выше).
-    </footer>
 </div>
 
 <script>
-    // Универсальная функция для кнопок: показывать/скрывать ответ и заполнять его корректным содержанием
-    function setupButtons() {
-        // Задание 1: кнопки имеют data-answer (правильная форма)
-        const btns1 = document.querySelectorAll('#task1-grid .btn-answer');
-        btns1.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const correct = this.getAttribute('data-answer');
-                const answerDiv = this.nextElementSibling;
-                if (answerDiv && answerDiv.classList.contains('answer-box')) {
-                    if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
-                        answerDiv.innerHTML = `<strong>✅ Правильный ответ:</strong> <span class="german-word">${correct}</span><br> → ${this.parentElement.querySelector('.question-text').innerText.replace('________', correct)}`;
-                        answerDiv.style.display = 'block';
-                    } else {
-                        answerDiv.style.display = 'none';
-                    }
-                }
-            });
-        });
+    // Обработка кнопок "Ответ"
+    document.querySelectorAll('.btn-answer').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const answerDiv = this.nextElementSibling;
+            if (!answerDiv || !answerDiv.classList.contains('answer-box')) return;
 
-        // Задание 2: кнопки с data-answer (буква правильного продолжения)
-        const btns2 = document.querySelectorAll('.match-item .btn-answer');
-        btns2.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const correctValue = this.getAttribute('data-answer'); // 'e', 'a', 'b', 'c', 'd'
-                const answerDiv = this.nextElementSibling;
-                const parentCard = this.closest('.card-item');
-                const selectElem = parentCard.querySelector('select');
-                let correctText = '';
-                if (correctValue === 'e') correctText = 'ich habe eine Katze';
-                else if (correctValue === 'a') correctText = 'du hast Hunger';
-                else if (correctValue === 'b') correctText = 'er hat Durst';
-                else if (correctValue === 'c') correctText = 'wir haben Zeit';
-                else if (correctValue === 'd') correctText = 'ihr habt Geld';
-                
-                if (answerDiv) {
-                    if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
-                        answerDiv.innerHTML = `<strong>✅ Правильное сочетание:</strong> <span class="german-word">${correctText}</span>`;
-                        answerDiv.style.display = 'block';
-                    } else {
-                        answerDiv.style.display = 'none';
-                    }
+            let correctText = '';
+            const parentCard = this.closest('.card-item');
+            const selectElem = parentCard?.querySelector('select');
+            
+            // Задание 1 (haben)
+            if (selectElem && selectElem.classList.contains('haben-select')) {
+                const correctVal = selectElem.getAttribute('data-correct');
+                if (correctVal) {
+                    const questionTextElem = parentCard.querySelector('.question-text');
+                    let originalText = questionTextElem ? questionTextElem.innerText : '';
+                    const completed = originalText.replace('________', correctVal);
+                    correctText = `✅ Правильная форма: <span class="german-word">${correctVal}</span><br> → ${completed}`;
                 }
-            });
-        });
-
-        // Задание 3: кнопки с data-trans-answer
-        const btns3 = document.querySelectorAll('#trans3a, #trans3b, #trans3c, #trans3d, #trans3e');
-        // собираем все кнопки внутри секции 3
-        const section3 = document.querySelector('.task-section:last-of-type');
-        const transButtons = section3.querySelectorAll('.btn-answer');
-        transButtons.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const correctAnswer = this.getAttribute('data-trans-answer');
-                const answerDiv = this.nextElementSibling;
-                if (answerDiv) {
-                    if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
-                        answerDiv.innerHTML = `<strong>✅ Правильный перевод:</strong> <span class="german-word">${correctAnswer}</span>`;
-                        answerDiv.style.display = 'block';
-                    } else {
-                        answerDiv.style.display = 'none';
-                    }
+            }
+            // Задание 2 (match)
+            else if (selectElem && selectElem.classList.contains('match-select')) {
+                const correctVal = selectElem.getAttribute('data-correct');
+                const matchMap = {
+                    'e': 'ich habe eine Katze',
+                    'a': 'du hast Hunger',
+                    'b': 'er hat Durst',
+                    'c': 'wir haben Zeit',
+                    'd': 'ihr habt Geld'
+                };
+                if (correctVal && matchMap[correctVal]) {
+                    correctText = `✅ Правильное сочетание: <span class="german-word">${matchMap[correctVal]}</span>`;
                 }
-            });
+            }
+            // Задание 3 (перевод)
+            else if (this.hasAttribute('data-trans')) {
+                correctText = `✅ Правильный перевод: <span class="german-word">${this.getAttribute('data-trans')}</span>`;
+            }
+            
+            if (correctText) {
+                if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                    answerDiv.innerHTML = correctText;
+                    answerDiv.style.display = 'block';
+                } else {
+                    answerDiv.style.display = 'none';
+                }
+            } else {
+                answerDiv.innerHTML = '⚠️ Не удалось определить ответ.';
+                answerDiv.style.display = 'block';
+            }
         });
-    }
-
-    // Также для задания 1, если захотим показать ответ, не связанный с выбором пользователя – достаточно кнопки
-    document.addEventListener('DOMContentLoaded', () => {
-        setupButtons();
-        // все блоки ответов изначально скрыты
-        document.querySelectorAll('.answer-box').forEach(box => box.style.display = 'none');
     });
+    
+    // Все ответы изначально скрыты
+    document.querySelectorAll('.answer-box').forEach(box => box.style.display = 'none');
 </script>
 </body>
 </html>
